@@ -9,12 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+	func isLetter() -> Bool {
+		return false
+	}
+	
+	func didWin() -> Bool {
+		return false
+	}
+	
+	func randomWord() -> String {
+		return ""
+	}
+	
+	func displayWord() {
+		
+	}
+	
+	func loseApple() {
+		
+	}
+	
+	func gainLetter() {
+		
+	}
 }
 
