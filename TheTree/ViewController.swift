@@ -14,8 +14,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-	func isLetter() -> Bool {
+    
+    //Code to put in each button action
+    //if(isLetter(button letter)) gainLetter()
+    //else loseApple()
+    func isLetter(letterPressed: Character) -> Bool {
+        for x in word {
+            var currentLetter = x.hexDigitValue
+            var letterSelected = letterPressed.hexDigitValue
+            if(currentLetter == letterSelected){
+                return true
+            }
+        }
 		return false
 	}
 	
