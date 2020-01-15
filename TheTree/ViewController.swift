@@ -10,11 +10,13 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController {
+	var words: [String] = []
 	var word: String = ""
 	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+		loadJSON()
     }
     
     //Code to put in each button action
@@ -22,8 +24,8 @@ class ViewController: UIViewController {
     //else loseApple()
     func isLetter(letterPressed: Character) -> Bool {
         for x in word {
-            var currentLetter = x.hexDigitValue
-            var letterSelected = letterPressed.hexDigitValue
+            let currentLetter = x.hexDigitValue
+            let letterSelected = letterPressed.hexDigitValue
             if(currentLetter == letterSelected){
                 return true
             }
@@ -38,27 +40,12 @@ class ViewController: UIViewController {
 	func randomWord() -> String {
 		var words: [String] = []
 		
-		DispatchQueue.global(qos: .background).async {
-			if let path = Bundle.main.path(forResource: "wordlist", ofType: "json") {
-				do {
-					let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-					let jsonData = try JSONDecoder().decode(WordList.self, from: data)
-					
-					words = jsonData.wordList
-				} catch _ {
-					print("error")
-				}
-			}
-		}
+		
 		
 		let randomWord = words[Int.random(in: 0..<words.count)]
 		word = randomWord
 		
 		return randomWord
-	}
-	
-	func displayWord() {
-		
 	}
 	
 	func loseApple() {
@@ -67,6 +54,33 @@ class ViewController: UIViewController {
 	
 	func gainLetter() {
 		
+	}
+	
+	func buttonOff(_ button: UIButton) {
+		button.isEnabled = false
+		
+	}
+	
+	func loadJSON() {
+		DispatchQueue.global(qos: .background).async {
+			if let path = Bundle.main.path(forResource: "wordlist", ofType: "json") {
+				do {
+					let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+					let jsonData = try JSONDecoder().decode(WordList.self, from: data)
+					
+					self.words = jsonData.wordList
+				} catch _ {
+					print("error")
+				}
+			}
+		}
+	}
+	
+	@IBAction func letterPressed(sender: UIButton) {
+		switch sender {
+		default:
+			break
+		}
 	}
 }
 
