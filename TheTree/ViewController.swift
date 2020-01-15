@@ -96,6 +96,8 @@ class ViewController: UIViewController {
 }
 
 
+
+
 struct WordList: Codable {
 	var wordList: [String]
 }
