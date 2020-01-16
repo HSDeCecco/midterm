@@ -113,43 +113,43 @@ class ViewController: UIViewController {
         case "g":
             whatToDo(buttonLetter: "g")
         case "h":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "h")
         case "i":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "i")
         case "j":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "j")
         case "k":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "k")
         case "l":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "l")
         case "m":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "m")
         case "n":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "n")
         case "o":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "o")
         case "p":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "p")
         case "q":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "q")
         case "r":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "r")
         case "s":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "s")
         case "t":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "t")
         case "u":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "u")
         case "v":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "v")
         case "w":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "w")
         case "x":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "x")
         case "y":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "y")
         case "z":
-            whatToDo(buttonLetter: "c")
+            whatToDo(buttonLetter: "z")
             
 		default:
 			break
