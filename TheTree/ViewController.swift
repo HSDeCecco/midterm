@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     var rightCounter = 0;
     var numOfWins = 0;
     var numOfLs = 0;
+    @IBOutlet weak var theTree: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -68,7 +70,7 @@ class ViewController: UIViewController {
 	}
 	
 	func loseApple() {
-		
+		theTree.image = UIImage(named: "Tree \(wrongCounter)")
 	}
 	
     func gainLetter(letter: Character) {
