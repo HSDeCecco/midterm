@@ -71,7 +71,7 @@ class ViewController: UIViewController {
 		
 	}
 	
-	func gainLetter() {
+    func gainLetter(letter: Character) {
 		
 	}
 	
@@ -96,14 +96,72 @@ class ViewController: UIViewController {
 	}
 	
 	@IBAction func letterPressed(sender: UIButton) {
-		switch sender {
+        
+		switch sender.currentTitle?.lowercased() {
+        case "a":
+            whatToDo(buttonLetter: "a")
+        case "b":
+            whatToDo(buttonLetter: "b")
+        case "c":
+            whatToDo(buttonLetter: "c")
+        case "d":
+            whatToDo(buttonLetter: "d")
+        case "e":
+            whatToDo(buttonLetter: "e")
+        case "f":
+            whatToDo(buttonLetter: "f")
+        case "g":
+            whatToDo(buttonLetter: "g")
+        case "h":
+            whatToDo(buttonLetter: "c")
+        case "i":
+            whatToDo(buttonLetter: "c")
+        case "j":
+            whatToDo(buttonLetter: "c")
+        case "k":
+            whatToDo(buttonLetter: "c")
+        case "l":
+            whatToDo(buttonLetter: "c")
+        case "m":
+            whatToDo(buttonLetter: "c")
+        case "n":
+            whatToDo(buttonLetter: "c")
+        case "o":
+            whatToDo(buttonLetter: "c")
+        case "p":
+            whatToDo(buttonLetter: "c")
+        case "q":
+            whatToDo(buttonLetter: "c")
+        case "r":
+            whatToDo(buttonLetter: "c")
+        case "s":
+            whatToDo(buttonLetter: "c")
+        case "t":
+            whatToDo(buttonLetter: "c")
+        case "u":
+            whatToDo(buttonLetter: "c")
+        case "v":
+            whatToDo(buttonLetter: "c")
+        case "w":
+            whatToDo(buttonLetter: "c")
+        case "x":
+            whatToDo(buttonLetter: "c")
+        case "y":
+            whatToDo(buttonLetter: "c")
+        case "z":
+            whatToDo(buttonLetter: "c")
+            
 		default:
 			break
 		}
+        didWin()
+        buttonOff(sender)
 	}
+    
+    
     func whatToDo(buttonLetter: Character) {
         if(isLetter(letterPressed: buttonLetter)){
-            gainLetter()
+            gainLetter(letter: buttonLetter)
         } else {
             loseApple()
         }
