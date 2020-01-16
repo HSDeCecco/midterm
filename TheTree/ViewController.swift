@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         //Reset Hang Man Word
         //Reset Tree
     }
+    
     func isLetter(letterPressed: Character) -> Bool {
         for x in word {
             let currentLetter = x.hexDigitValue
