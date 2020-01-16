@@ -7,53 +7,63 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController {
-	
-
-    @IBOutlet weak var wordLabel1: UILabel!
-    @IBOutlet weak var wordLabel2: UILabel!
-    @IBOutlet weak var wordLabel3: UILabel!
-    @IBOutlet weak var wordLabel4: UILabel!
-    @IBOutlet weak var wordLabel5: UILabel!
-    @IBOutlet weak var wordLabel6: UILabel!
-    @IBOutlet weak var wordLabel7: UILabel!
-    @IBOutlet weak var wordLabel8: UILabel!
-    @IBOutlet weak var wordLabel9: UILabel!
-    @IBOutlet weak var wordLabel10: UILabel!
-    @IBOutlet weak var wordLabel11: UILabel!
-    @IBOutlet weak var wordLabel12: UILabel!
-    @IBOutlet weak var wordLabel13: UILabel!
-    @IBOutlet weak var wordLabel14: UILabel!
-    @IBOutlet weak var wordLabel15: UILabel!
-    @IBOutlet weak var wordLabel16: UILabel!
-    @IBOutlet weak var wordLabel17: UILabel!
-    @IBOutlet weak var wordLabel18: UILabel!
-    @IBOutlet weak var wordLabel19: UILabel!
-    @IBOutlet weak var wordLabel20: UILabel!
-    @IBOutlet weak var wordLabel21: UILabel!
-    
-    
-    
+	var words: [String] = []
+	var word: String = ""
+    var wrongCounter = 0;
+    var rightCounter = 0;
+    var numOfWins = 0;
+    var numOfLs = 0;
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+		loadJSON()
     }
-
-	func isLetter() -> Bool {
+    
+    func reset() {
+        //Set labels to blue
+        //Reset Hang Man Word
+        //Reset Tree
+    }
+    func isLetter(letterPressed: Character) -> Bool {
+        for x in word {
+            let currentLetter = x.hexDigitValue
+            let letterSelected = letterPressed.hexDigitValue
+            if(currentLetter == letterSelected){
+                rightCounter += 1
+                return true
+            }
+        }
+        wrongCounter += 1;
 		return false
 	}
 	
 	func didWin() -> Bool {
+        if(wrongCounter == 7){
+            numOfLs += 1
+            //Ajust Lose Label
+        }
+        if(rightCounter == word.count){
+            numOfWins += 1
+            //Adjust Win Label
+        }
+        wrongCounter = 0
+        rightCounter = 0
+        reset()
 		return false
 	}
 	
 	func randomWord() -> String {
-		return ""
-	}
-	
-	func displayWord() {
+		var words: [String] = []
 		
+		
+		
+		let randomWord = words[Int.random(in: 0..<words.count)]
+		word = randomWord
+		
+		return randomWord
 	}
 	
 	func loseApple() {
@@ -63,5 +73,44 @@ class ViewController: UIViewController {
 	func gainLetter() {
 		
 	}
+	
+	func buttonOff(_ button: UIButton) {
+		button.isEnabled = false
+		
+	}
+	
+	func loadJSON() {
+		DispatchQueue.global(qos: .background).async {
+			if let path = Bundle.main.path(forResource: "wordlist", ofType: "json") {
+				do {
+					let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+					let jsonData = try JSONDecoder().decode(WordList.self, from: data)
+					
+					self.words = jsonData.wordList
+				} catch _ {
+					print("error")
+				}
+			}
+		}
+	}
+	
+	@IBAction func letterPressed(sender: UIButton) {
+		switch sender {
+		default:
+			break
+		}
+	}
+    func whatToDo(buttonLetter: Character) {
+        if(isLetter(letterPressed: buttonLetter)){
+            gainLetter()
+        } else {
+            loseApple()
+        }
+        
+    }
 }
 
+
+struct WordList: Codable {
+	var wordList: [String]
+}
